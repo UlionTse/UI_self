@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>房天下(北京)可视化Beta</title>
+    <meta name="viewport" content="width=device-width" />
+    <meta name="keywords" content="搜房可视化"/>
+    <meta name="description" content="研究北京二手房租售市场状况，数据可视化展现">
+    <meta name="author" content="UlionTse">
+    <Link rel="icon" href="home.ico">  <!--ico-->
+    <style type="text/css">
+        body{
+            background-color: #002B36;
+            padding:0px; 
+            margin:0px;
+            font-size: 12px;
+            font-family: Microsoft YaHei;
+        }
+        #container{
+            margin: 0px;
+            width: 100%;
+
+            text-align: left;
+            background-color: #002B36;
+        }
+
+        #globallink{
+            margin: 0px auto;
+            padding: 0px;
+            background-color: #149d76;
+            height: 52px;
+            width: 100%;
+
+            
+        }
+        #globallink ul{
+            margin: 0px;
+            padding: 0px;
+            list-style-type: none;
+            
+        }
+        #globallink ul li{
+            float: left;
+            text-align: center;
+            width: 10%;
+            top: 0px;
+      
+        }
+        #globallink ul li a{
+            display: block;
+            padding: 10px 10px 10px 10px;
+            margin: 0px;
+            background-color: #149d76;
+            font-size: 18px;
+            height: 30px;
+        }
+        #globallink ul li a:link,#globallink ul li a:visited{
+            color: #fff;
+            text-decoration: none;
+        }
+        #globallink ul li a:hover{
+            color: #ec4149;
+        }
+
+
+
+        #left{
+            margin: 0px;
+            padding: 0px;
+            background-color: #666;
+            width: 10%;
+            height: 500px;
+            color: blue;
+            position: fixed;
+
+           
+        }
+        #menu ul{
+            margin: 0px;
+            padding: 0px;
+            list-style-type: none;
+            
+        }
+        #menu ul li{
+            
+            text-align: left;
+            margin: 0px;
+            padding: 0px;
+            height: 40px;
+        }
+
+        #menu ul li a{
+            display: block;
+            padding: 11px 5px 12px 20px;
+            margin: 0px;
+            background: url('http://i.imgur.com/MoG5e8h.png');
+            font-size: 12px;
+        }
+        #menu ul li a:link,#menu ul li a:visited{
+            color: #fff;
+            text-decoration: none;
+        }
+        #menu ul li a:hover{
+            color: #ec4149;
+            background: url('http://i.imgur.com/nxLbt90.png');
+        }
+
+
+
+
+        #right{
+            margin: 0px;
+            padding: 0px;
+            background-color: #002B36;
+            width: 81%;
+            font-family: STFangsong;
+            color: yellow;
+            float: right;
+        }
+        #zhushi p{ 
+
+        }
+        #footer{
+            position:fixed; 
+            text-align:right; 
+            bottom:0px; 
+            margin-left:-25px; 
+            height:30px; 
+            width:100%;
+            color: red;
+        }
+        #footer a:link, #footer a:visited{
+            color: red;
+        }
+        #footer a:hover{
+            color: #fff;
+            background: url('http://i.imgur.com/JidMDHl.png');
+        }
+
+    </style>
+
+</head>
+<body>
+    <!--整体外层容器-->
+    <div id="container">
+        <!--全局导航条-->
+        <div id="globallink">
+            <ul>
+                <li><a href="#">Fang可视化</a></li>
+                <li><a href="http://news.fang.com">房产快讯</a></li>
+                <li><a href="http://fdc.fang.com/index" style="font-weight: normal;">房产指数</a></li>
+                <li><a href="http://fdc.fang.com/data">房产数据</a></li>
+                <li><a href="http://fdc.fang.com/top10/">房企研究</a></li>
+                <li><a href="http://fdc.fang.com/news/hottopics.aspx">热点专题</a></li> 
+                <li><a href="#">&nbsp&nbsp&nbsp&nbsp</a></li>               
+                <li><a href="#">&nbsp&nbsp&nbsp&nbsp</a></li>
+                <li><a href="#">&nbsp&nbsp&nbsp&nbsp</a></li>
+                <li><a href="#">&nbsp&nbsp&nbsp&nbsp</a></li>
+                
+            </ul>
+        </div>
+        <!--左侧栏-->
+        <div id="left">
+            <div id="menu">
+                
+                <ul>
+                    <li><a href="#">市场供需情况(目录)</a></li>
+                    <li><a href="#区县">&nbsp&nbsp&nbsp&nbsp区县</a></li>
+                    <li><a href="#商圈">&nbsp&nbsp&nbsp&nbsp商圈</a></li>
+                    <li><a href="#楼盘">&nbsp&nbsp&nbsp&nbsp楼盘</a></li>
+                    <li><a href="#地铁线">&nbsp&nbsp&nbsp&nbsp地铁线</a></li>
+                    <li><a href="#地铁站">&nbsp&nbsp&nbsp&nbsp地铁站</a></li>
+                    <li><a href="#价格、居室、面积">&nbsp&nbsp&nbsp&nbsp居室</a></li>
+                    <li><a href="#价格、居室、面积">&nbsp&nbsp&nbsp&nbsp价格</a></li>
+                    <li><a href="#价格、居室、面积">&nbsp&nbsp&nbsp&nbsp面积</a></li>
+                    <li><a href="#楼层">&nbsp&nbsp&nbsp&nbsp楼层</a></li>
+                    <li><a href="#装修">&nbsp&nbsp&nbsp&nbsp装修</a></li>
+                    <li><a href="#房龄">&nbsp&nbsp&nbsp&nbsp房龄</a></li>
+                    <li><a href="#搜索条件使用">&nbsp&nbsp&nbsp&nbsp搜索条件使用</a></li>
+                </ul>
+            </div>   
+        </div>
+
+
+        <!--右侧栏-->
+        <div id="right">
+            <p id="zhushi">*注：1、左图为PC端数据图，右图为无线数据图；2、皆为前十数据。</p>
+            <h3><span>时段</span></h3>
+            <div id="时段">
+                <img src="http://i.imgur.com/pj3TOH1.png" width="481" height="288" alt="PC搜索占比图">
+                <img src="http://i.imgur.com/KPJ0N03.png" width="481" height="288" alt="无线搜索占比图">
+            </div>
+            <h3><span>区县</span></h3>
+            <div id="区县">
+                <img src="http://i.imgur.com/A878bra.png" width="481" height="288" alt="PC搜索占比图">
+                <img src="http://i.imgur.com/PjSrpns.png" width="481" height="288" alt="无线搜索占比图">
+            </div>
+            <h3><span>商圈</span></h3>
+            <div id="商圈">
+                <img src="http://i.imgur.com/JgMU7ve.png" width="481" height="288" alt="PC搜索占比图">
+                <img src="http://i.imgur.com/iVfvT7n.png" width="481" height="288" alt="无线搜索占比图">
+            </div>
+            <h3><span>楼盘</span></h3>
+            <div id="楼盘">
+                <img src="http://i.imgur.com/oYzNPLR.png" width="481" height="288" alt="PC搜索占比图">
+                <img src="http://i.imgur.com/MpXVor4.png" width="481" height="288" alt="无线搜索占比图">
+            </div>
+            <h3><span>地铁线</span></h3>
+            <div id="地铁线">
+                <img src="http://i.imgur.com/4wQR5hu.png" width="481" height="288" alt="PC搜索占比图">
+                <img src="http://i.imgur.com/7fHeK14.png" width="481" height="288" alt="无线搜索占比图">
+            </div>
+            <h3><span>地铁站</span></h3>
+            <div id="地铁站">
+                <img src="http://i.imgur.com/VE4PgHc.png" width="481" height="288" alt="PC搜索占比图">
+                <img src="http://i.imgur.com/0taPawl.png" width="481" height="288" alt="无线搜索占比图">
+            </div>
+            <h3><span>价格、居室、面积</span></h3>
+            <div id="价格、居室、面积">
+                <img src="http://i.imgur.com/Deg2Wqh.png" width="481" height="288" alt="图片加载失败">
+        <!--    <img src="http://i.imgur.com/LPLl8UN.png" width="481" height="288" alt="无线搜索占比图">
+        -->
+            </div>
+            <h3><span>楼层</span></h3>
+            <div id="楼层">
+                <img src="http://i.imgur.com/B3arpHh.png" alt="PC搜索占比图">
+                
+            </div>
+            <h3><span>装修</span></h3>
+            <div id="装修">
+                <img src="http://i.imgur.com/UJqMdPy.png" alt="PC搜索占比图">
+            
+            </div>
+            <h3><span>房龄</span></h3>
+            <div id="房龄">
+                <img src="http://i.imgur.com/7tdolEX.png" alt="PC搜索占比图">
+            
+            </div>
+            <h3><span>搜索条件使用</span></h3>
+            <div id="搜索条件使用">
+                <img src="http://i.imgur.com/j3fwbaC.png" alt="PC搜索占比图">
+           
+            </div>
+            
+        </div>
+
+
+
+
+        <!--脚注-->
+        <div id="footer">
+            <footer>
+                <a href="#">返回顶部</a>
+            </footer>
+        </div>
+    </div>
+
+</body>
+</html>
